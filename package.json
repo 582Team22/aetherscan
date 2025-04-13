@@ -2,12 +2,12 @@
   "name": "aetherscan-client",
   "private": true,
   "version": "1.0.0",
-  "homepage": "https://jaxonavena.github.io/AetherScan",
+  "homepage": ".",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "./node_modules/gh-pages/bin/gh-pages-clean.js && gh-pages -d dist",
+    "deploy": "./node_modules/gh-pages/bin/gh-pages-clean.js && gh-pages -d docs",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --config ./vite.config.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
