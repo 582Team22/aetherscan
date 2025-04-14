@@ -1,106 +1,147 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Paper, Grid, TextField, Button, Alert } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { Settings as SettingsIcon, Save as SaveIcon } from '@mui/icons-material';
 import supabase from '../utils/supabase';
-import { useState, useEffect } from 'react'
 import { useAuth } from '../hooks/AuthProvider';
 
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(3),
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  borderRadius: theme.shape.borderRadius * 2,
+}));
+
+const TitleBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: theme.spacing(3),
+}));
+
+const FormBox = styled(Box)(({ theme }) => ({
+  marginTop: theme.spacing(3),
+}));
+
 const Settings = () => {
-    // State to hold the OBS server address
-    const [obsServer, setObsServer] = useState('');
+  const [obsServer, setObsServer] = useState('');
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
+  const curUser = useAuth().curUser;
 
-    // Get the user from the AuthProvider
-    const curUser = useAuth().curUser;
-    // Fetch the current OBS server from the database when the component mounts
-    useEffect(() => {
-        // Try to lookup the row using the user ID
-        console.log('Current User:', curUser);
-        const fetchSettings = async () => {
-            console.log("Fetching settings for user ID:", curUser.id);
-            const { data, error } = await supabase
-                .from('settings')
-                .select()
-                .eq('uid', curUser.id);
-            // get uid from supabase auth
-            if (error) {
-                console.error('Error fetching settings:', error);
-                // insert a new row if it doesn't exist
-                const { data: insertData, error: insertError } = await supabase
-                    .from('settings')
-                    .insert({ uid: curUser.id, obs_server: 'http://localhost:5001/video_feed' });
-                if (insertError) {
-                    console.error('Error inserting default settings:', insertError);
-                    return;
-                }
-                console.log('Default settings inserted:', insertData);
-            } else {
-                console.log('Settings data:', data);
-                if (data.length > 0) {
-                    setObsServer(data[0].obs_server);
-                }
-            }
-        };
-        fetchSettings();
-    }, []);
+  useEffect(() => {
+    const fetchSettings = async () => {
+      console.log("Fetching settings for user ID:", curUser.id);
+      const { data, error } = await supabase
+        .from('settings')
+        .select()
+        .eq('uid', curUser.id);
 
-    // Function to handle changes to the OBS server input
-    const handleObsServerChange = async (obsServerValue) => {
-        // send value to supabase DB
-        console.log('User ID:', curUser.id);
-        console.log('New OBS server value:', obsServerValue);
-
-        // Check if the obsServerValue is empty
-        if (!obsServerValue) {
-            return "Please enter a valid OBS server address.";
+      if (error) {
+        console.error('Error fetching settings:', error);
+        const { data: insertData, error: insertError } = await supabase
+          .from('settings')
+          .insert({ uid: curUser.id, obs_server: 'http://localhost:5001/video_feed' });
+        if (insertError) {
+          console.error('Error inserting default settings:', insertError);
+          return;
         }
-
-        // Update the OBS server in the database
-        const { data, error } = await supabase
-            .from('settings')
-            .update({ obs_server: obsServerValue })
-            .eq('uid', curUser.id);
-        if (error) {
-            console.error('Error updating OBS server:', error);
-            return "Failed to update OBS server: " + error.message;
+        console.log('Default settings inserted:', insertData);
+      } else {
+        console.log('Settings data:', data);
+        if (data.length > 0) {
+          setObsServer(data[0].obs_server);
         }
-        if (data) {
-            console.log('OBS server updated:', data);
-        }
-        return null;
+      }
     };
+    fetchSettings();
+  }, [curUser.id]);
 
-    const handleSettingsChange = async (e) => {
-        e.preventDefault();
-        // Call the function to handle the OBS server change
-        let err = null;
-        err = await handleObsServerChange(obsServer);
+  const handleObsServerChange = async (obsServerValue) => {
+    if (!obsServerValue) {
+      return "Please enter a valid OBS server address.";
+    }
 
-        // Check if there was an error
-        if (err) {
-            alert(err);
-        } else {
-            alert('Settings updated successfully!');
-        }
-    }    
+    const { error } = await supabase
+      .from('settings')
+      .update({ obs_server: obsServerValue })
+      .eq('uid', curUser.id);
+
+    if (error) {
+      console.error('Error updating OBS server:', error);
+      return "Failed to update OBS server: " + error.message;
+    }
+    return null;
+  };
+
+  const handleSettingsChange = async (e) => {
+    e.preventDefault();
+    setError('');
+    setSuccess('');
     
-    return (
-        <div className="settings-container">
-            <h2>Settings</h2>
-            <div className="setting-group">
-                <label htmlFor="obsServer">OBS WebSocket Server:</label>
-                <input
-                    type="text"
-                    id="obsServer"
-                    value={obsServer}
-                    placeholder="http://localhost:5001/video_feed"
-                    className="input-field"
-                    onChange={(e) => setObsServer(e.target.value)}
-                    style={{ width: '15%' }}
-                    required
-                />
-                <p className="help-text">Enter your OBS WebSocket server address (e.g., http://localhost:5001/video_feed)</p>
-            </div>
-            <button onClick={handleSettingsChange}>Update Settings</button>
-        </div>
-    );
+    const err = await handleObsServerChange(obsServer);
+    if (err) {
+      setError(err);
+    } else {
+      setSuccess('Settings updated successfully!');
+    }
+  };
+
+  return (
+    <Box>
+      <Typography variant="h4" gutterBottom>
+        Settings
+      </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <StyledPaper elevation={1}>
+            <TitleBox>
+              <Typography variant="h6">
+                System Settings
+              </Typography>
+            </TitleBox>
+            <Typography variant="body2" color="text.secondary" align="center" gutterBottom>
+              Configure your drone monitoring system settings.
+            </Typography>
+
+            {success && (
+              <Alert severity="success" sx={{ mb: 2 }}>
+                {success}
+              </Alert>
+            )}
+            {error && (
+              <Alert severity="error" sx={{ mb: 2 }}>
+                {error}
+              </Alert>
+            )}
+
+            <FormBox component="form" onSubmit={handleSettingsChange}>
+              <TextField
+                fullWidth
+                label="OBS WebSocket Server"
+                value={obsServer}
+                onChange={(e) => setObsServer(e.target.value)}
+                placeholder="http://localhost:5001/video_feed"
+                helperText="Enter your OBS WebSocket server address"
+                sx={{ mb: 3 }}
+              />
+              <Box display="flex" justifyContent="center">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  startIcon={<SaveIcon />}
+                >
+                  Save Settings
+                </Button>
+              </Box>
+            </FormBox>
+          </StyledPaper>
+        </Grid>
+      </Grid>
+    </Box>
+  );
 };
 
 export default Settings;
