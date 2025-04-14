@@ -23,16 +23,29 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius * 2,
 }));
 
+const TitleBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: theme.spacing(3),
+  width: '100%',
+  textAlign: 'center',
+}));
+
 function SignUp() {
   return (
     <StyledContainer>
       <StyledPaper elevation={0}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Sign up
-        </Typography>
-        <Typography variant="body1" color="text.secondary" gutterBottom>
-          Just a few quick things to get started
-        </Typography>
+        <TitleBox>
+          <Box>
+            <Typography variant="h4" component="h1" gutterBottom>
+              Sign up
+            </Typography>
+            <Typography variant="body1" color="text.secondary" gutterBottom>
+              Just a few quick things to get started
+            </Typography>
+          </Box>
+        </TitleBox>
         <Box width="100%" mt={2}>
           <SignUpForm />
         </Box>

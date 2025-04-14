@@ -23,16 +23,29 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius * 2,
 }));
 
+const TitleBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: theme.spacing(3),
+  width: '100%',
+  textAlign: 'center',
+}));
+
 function Login() {
   return (
     <StyledContainer>
       <StyledPaper elevation={0}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Login
-        </Typography>
-        <Typography variant="body1" color="text.secondary" gutterBottom>
-          Hi! Welcome back.
-        </Typography>
+        <TitleBox>
+          <Box>
+            <Typography variant="h4" component="h1" gutterBottom>
+              Login
+            </Typography>
+            <Typography variant="body1" color="text.secondary" gutterBottom>
+              Hi! Welcome back.
+            </Typography>
+          </Box>
+        </TitleBox>
         <Box width="100%" mt={2}>
           <LoginForm />
         </Box>

@@ -16,6 +16,13 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius * 2,
 }));
 
+const TitleBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: theme.spacing(3),
+}));
+
 const MetricBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'flex-start',
@@ -57,9 +64,11 @@ const Dashboard = () => {
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <StyledPaper elevation={1}>
-            <Typography variant="h6" gutterBottom>
-              Current Status
-            </Typography>
+            <TitleBox>
+              <Typography variant="h6">
+                Current Status
+              </Typography>
+            </TitleBox>
             <MetricBox>
               <BatteryIcon />
               <Box>
@@ -108,9 +117,11 @@ const Dashboard = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <StyledPaper elevation={1}>
-            <Typography variant="h6" gutterBottom>
-              Recent Activity
-            </Typography>
+            <TitleBox>
+              <Typography variant="h6">
+                Recent Activity
+              </Typography>
+            </TitleBox>
             {/* Add a timeline or activity feed here */}
             <Typography variant="body2" color="text.secondary">
               No recent activity to display.

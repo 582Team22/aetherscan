@@ -13,6 +13,13 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius * 2,
 }));
 
+const TitleBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: theme.spacing(3),
+}));
+
 const VideoBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'flex-start',
@@ -77,17 +84,14 @@ const LiveVideoFeed = () => {
             <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <StyledPaper elevation={1}>
-                        <VideoBox>
-                            <VideocamIcon />
-                            <Box>
-                                <Typography variant="h6" gutterBottom>
-                                    Drone Camera Feed
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary" gutterBottom>
-                                    Real-time video stream from the drone's camera.
-                                </Typography>
-                            </Box>
-                        </VideoBox>
+                        <TitleBox>
+                            <Typography variant="h6">
+                                Drone Camera Feed
+                            </Typography>
+                        </TitleBox>
+                        <Typography variant="body2" color="text.secondary" align="center" gutterBottom>
+                            Real-time video stream from the drone's camera.
+                        </Typography>
                         <VideoContainer>
                             <img 
                                 src={obsServer || 'http://localhost:5001/video_feed'} 
