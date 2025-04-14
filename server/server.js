@@ -1,5 +1,6 @@
 const express = require("express");
 const userRoutes = require("./routes/userRoutes");
+const detectionRoutes = require("./routes/droneDetection");
 const knex = require('knex')(require('./knexfile').development);
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use("/users", userRoutes);
+app.use("/droneDetected", detectionRoutes);
 
 // Ex. route with SQLite3
 // app.get("/users", async (req, res) => {
