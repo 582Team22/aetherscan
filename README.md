@@ -7,5 +7,10 @@
 ## Running the app:
 1. `npx vite` in `aetherscan/` to start frontend server @ `http://localhost:5173/`
 
+## Deploying the app:
+1. Ideally, make sure the changes are up to date and pushed to main.
+2. Then run `npm run predeploy && npm run deploy`. The app should be deployed now (takes about a minute for changes to propogate to website).
+3. Visit [https://582team22.github.io/aetherscan]!
+
 ## Managing the database
 Supabase is the host of our database. If you need to make a new table, navigate to the Team22 organization and then to the AetherScan project. 
