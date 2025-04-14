@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../assets/SignUpForm.css';
+import { TextField, Button, Box, Alert } from '@mui/material';
+import { Email as EmailIcon, Person as PersonIcon, Lock as LockIcon } from '@mui/icons-material';
+import { styled } from '@mui/material/styles';
 import supabase from '../utils/supabase';
+
+const StyledTextField = styled(TextField)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+  '& .MuiInputAdornment-root': {
+    marginRight: theme.spacing(1),
+  },
+}));
 
 function SignUpForm() {
   const [email, setEmail] = useState('');
@@ -18,84 +26,82 @@ function SignUpForm() {
     setSuccess('');
     
     try {
-        const { data, error } = await supabase.auth.signUp({
-          email: email,
-          password: password,
-        });
-        console.log('Signing up with:', { email, username, password });
-        console.log("data: ", data);
-        
-        if (!error) {
-          setSuccess('Account created successfully!');
-          console.log('Signup successful: ', success);
-          setTimeout(() => {
-            navigate('/login');
-          }, 2000);
-        } else {
-          console.log("Signup error: ", error);
-        }
-    } catch(err){
-      setError(err.response? err.response.data.message : 'Signup failed');
-      console.error('Signup error: ', error);
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+      });
+      
+      if (!error) {
+        setSuccess('Account created successfully!');
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
+      } else {
+        setError(error.message);
+      }
+    } catch(err) {
+      setError(err.response ? err.response.data.message : 'Signup failed');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="signup-form">
-      <div className="input-wrapper">
-        <i className="fa-solid fa-envelope input-icon" />
-        <input
+    <form onSubmit={handleSubmit}>
+      <Box display="flex" flexDirection="column" width="100%">
+        {error && (
+          <Alert severity="error" sx={{ mb: 2 }}>
+            {error}
+          </Alert>
+        )}
+        {success && (
+          <Alert severity="success" sx={{ mb: 2 }}>
+            {success}
+          </Alert>
+        )}
+        <StyledTextField
           type="email"
-          placeholder="Email"
+          label="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          fullWidth
+          InputProps={{
+            startAdornment: <EmailIcon color="action" />,
+          }}
         />
-      </div>
-      <div className="input-wrapper">
-        <i className="fa-solid fa-user input-icon" />
-        <input
+        <StyledTextField
           type="text"
-          placeholder="Username"
+          label="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          fullWidth
+          InputProps={{
+            startAdornment: <PersonIcon color="action" />,
+          }}
         />
-      </div>
-      <div className="input-wrapper">
-        <i className="fa-solid fa-lock input-icon" />
-        <input
+        <StyledTextField
           type="password"
-          placeholder="Password"
+          label="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          fullWidth
+          InputProps={{
+            startAdornment: <LockIcon color="action" />,
+          }}
         />
-      </div>
-      <button type="submit">Sign Up</button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          size="large"
+          fullWidth
+        >
+          Sign Up
+        </Button>
+      </Box>
     </form>
   );
 }
-
-const styles = {
-    input: {
-      width: '100%',
-      padding: '0.8rem',
-      marginBottom: '1rem',
-      fontSize: '1rem',
-      border: '1px solid #ccc',
-      borderRadius: '4px'
-    },
-    button: {
-      width: '100%',
-      backgroundColor: '#635BBA',
-      color: '#fff',
-      padding: '0.8rem',
-      fontSize: '1rem',
-      border: 'none',
-      borderRadius: '4px',
-      cursor: 'pointer'
-    }
-  };
 
 export default SignUpForm;

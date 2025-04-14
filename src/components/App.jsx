@@ -7,23 +7,28 @@ import SignUp from '../pages/SignUp';
 import HomePage from '../pages/HomePage';
 import PrivateRoute from '../router/PrivateRoute';
 import { AuthProvider } from '../hooks/AuthProvider';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import { theme } from '../theme/theme';
 
 function App() {
   return (
-    <HashRouter>
-      <AuthProvider>
-        <Routes>
-          <Route element={<PrivateRoute />}>
-            <Route path="/" element={<Navigate to="/homepage" replace />} />
-          </Route>
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route element={<PrivateRoute />}>
-            <Route path="/homepage/*" element={<HomePage />} />
-          </Route>
-        </Routes>
-      </AuthProvider>
-    </HashRouter>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <HashRouter>
+        <AuthProvider>
+          <Routes>
+            <Route element={<PrivateRoute />}>
+              <Route path="/" element={<Navigate to="/homepage" replace />} />
+            </Route>
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<SignUp />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="/homepage/*" element={<HomePage />} />
+            </Route>
+          </Routes>
+        </AuthProvider>
+      </HashRouter>
+    </ThemeProvider>
   )
 }
 

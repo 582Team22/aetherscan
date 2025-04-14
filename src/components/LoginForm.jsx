@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import '../assets/LoginForm.css'
+import { TextField, Button, Box } from '@mui/material';
+import { Email as EmailIcon, Lock as LockIcon } from '@mui/icons-material';
 import { useAuth } from '../hooks/AuthProvider';
+import { styled } from '@mui/material/styles';
+
+const StyledTextField = styled(TextField)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+  '& .MuiInputAdornment-root': {
+    marginRight: theme.spacing(1),
+  },
+}));
 
 function LoginForm() {
   const [email, setEmail] = useState('');
@@ -15,51 +22,42 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      <div className="input-wrapper">
-        <i className="fa-solid fa-envelope input-icon" />
-        <input
+    <form onSubmit={handleSubmit}>
+      <Box display="flex" flexDirection="column" width="100%">
+        <StyledTextField
           type="email"
-          placeholder="Email"
+          label="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          fullWidth
+          InputProps={{
+            startAdornment: <EmailIcon color="action" />,
+          }}
         />
-      </div>
-      <div className="input-wrapper">
-        <i className="fa-solid fa-lock input-icon" />
-        <input
+        <StyledTextField
           type="password"
-          placeholder="Password"
+          label="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          fullWidth
+          InputProps={{
+            startAdornment: <LockIcon color="action" />,
+          }}
         />
-      </div>
-      <button type="submit">Log In</button>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          size="large"
+          fullWidth
+        >
+          Log In
+        </Button>
+      </Box>
     </form>
   );
 }
-
-const styles = {
-    input: {
-      width: '100%',
-      padding: '0.8rem',
-      marginBottom: '1rem',
-      fontSize: '1rem',
-      border: '1px solid #ccc',
-      borderRadius: '4px'
-    },
-    button: {
-      width: '100%',
-      backgroundColor: '#635BBA',
-      color: '#fff',
-      padding: '0.8rem',
-      fontSize: '1rem',
-      border: 'none',
-      borderRadius: '4px',
-      cursor: 'pointer'
-    }
-  };
 
 export default LoginForm;
