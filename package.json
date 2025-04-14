@@ -2,7 +2,7 @@
   "name": "aetherscan-client",
   "private": true,
   "version": "1.0.0",
-  "homepage": ".",
+  "homepage": "https://582team22.github.io/aetherscan/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "./node_modules/gh-pages/bin/gh-pages-clean.js && gh-pages -d docs",

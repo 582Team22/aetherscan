@@ -1,7 +1,7 @@
 // import { useState, useEffect } from 'react'
 import '../assets/App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import {BrowserRouter as Router, Routes, Route,Navigate} from 'react-router-dom';
+import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import HomePage from '../pages/HomePage';
@@ -10,7 +10,7 @@ import { AuthProvider } from '../hooks/AuthProvider';
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <AuthProvider>
         <Routes>
           <Route element={<PrivateRoute />}>
@@ -23,7 +23,7 @@ function App() {
           </Route>
         </Routes>
       </AuthProvider>
-    </Router>
+    </HashRouter>
   )
 }
 
