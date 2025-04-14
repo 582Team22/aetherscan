@@ -8,6 +8,7 @@ import Settings from "./Settings";
 import Support from "./Support";
 import Dashboard from "./Dashboard";
 import { useAuth } from '../hooks/AuthProvider';
+import DetectionLog from "./DetectionLog";
 
 function HomePage () {
   const auth = useAuth(); // Set's up the authenticator function
@@ -50,6 +51,12 @@ function HomePage () {
               <Link to="/homepage/interactive-map">
                 <i className="fas fa-map-marked-alt"></i>
                 <span>Interactive Map</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/homepage/drone-detection">
+                <i className="fas fa-file-alt"></i>
+                <span>Log Detection</span>
               </Link>
             </li>
           </ul>
@@ -100,6 +107,7 @@ function HomePage () {
             <Route path="interactive-map" element={<InteractiveMap />} />
             <Route path="support" element={<Support />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="drone-detection" element={<DetectionLog/>} />
           </Routes>
         </div>
       </div>
