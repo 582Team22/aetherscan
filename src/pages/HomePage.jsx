@@ -14,7 +14,7 @@ function HomePage () {
   const handleLogout = async (e) => {
     e.preventDefault();
     await auth.logOut();
-    console.log("User logged out");
+    console.log("User logged out, redirecting to login page...");
   };
 
   return (
