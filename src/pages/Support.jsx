@@ -1,129 +1,144 @@
-import React from 'react';
-import { Box, Typography, Paper, Grid, List, ListItem, ListItemIcon, ListItemText, Button, Link } from '@mui/material';
-import { styled } from '@mui/material/styles';
+/*
+ * Author: Kyle Spragg
+ * File: Support.jsx
+ * Purpose: This component provides a support page for users, 
+ *          offering various resources such as documentation, 
+ *          contact support, community forums, and issue reporting.
+ */
+
+import React from 'react'; // Importing React library to create the component
+import { Box, Typography, Paper, Grid, List, ListItem, ListItemIcon, ListItemText, Button, Link } from '@mui/material'; // Importing Material-UI components for layout and styling
+import { styled } from '@mui/material/styles'; // Importing styled utility from Material-UI for custom styling
 import {
   Help as HelpIcon,
   Email as EmailIcon,
   Book as DocumentationIcon,
   Forum as CommunityIcon,
   BugReport as BugIcon,
-} from '@mui/icons-material';
+} from '@mui/icons-material'; // Importing icons for various support resources
 
+// Creating a styled Paper component with custom styles
 const StyledPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(3),
-  height: '100%',
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  borderRadius: theme.shape.borderRadius * 2,
+  padding: theme.spacing(3), // Adding padding to the Paper component
+  height: '100%', // Setting height to 100%
+  width: '100%', // Setting width to 100%
+  display: 'flex', // Using flexbox for layout
+  flexDirection: 'column', // Arranging children in a column
+  borderRadius: theme.shape.borderRadius * 2, // Customizing border radius
 }));
 
+// Creating a styled Box component for the title
 const TitleBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginBottom: theme.spacing(3),
+  display: 'flex', // Using flexbox for layout
+  alignItems: 'center', // Aligning items to the center
+  justifyContent: 'center', // Centering content horizontally
+  marginBottom: theme.spacing(3), // Adding margin below the title box
 }));
 
+// Creating a styled Box component for support resources
 const SupportBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'flex-start',
-  marginBottom: theme.spacing(2),
-  '& .MuiSvgIcon-root': {
-    marginRight: theme.spacing(2),
-    color: theme.palette.primary.main,
-    fontSize: '2rem',
-    marginTop: '4px',
+  display: 'flex', // Using flexbox for layout
+  alignItems: 'flex-start', // Aligning items to the start
+  marginBottom: theme.spacing(2), // Adding margin below each support resource
+  '& .MuiSvgIcon-root': { // Customizing icon styles
+    marginRight: theme.spacing(2), // Adding margin to the right of icons
+    color: theme.palette.primary.main, // Setting icon color
+    fontSize: '2rem', // Setting icon size
+    marginTop: '4px', // Adding margin to the top of icons
   },
 }));
 
+// Creating a styled ListItem component with custom styles
 const StyledListItem = styled(ListItem)(({ theme }) => ({
-  padding: theme.spacing(2),
-  marginBottom: theme.spacing(2),
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: theme.palette.background.default,
-  '&:hover': {
-    backgroundColor: theme.palette.grey[100],
+  padding: theme.spacing(2), // Adding padding to the ListItem
+  marginBottom: theme.spacing(2), // Adding margin below each ListItem
+  borderRadius: theme.shape.borderRadius, // Customizing border radius
+  backgroundColor: theme.palette.background.default, // Setting background color
+  '&:hover': { // Adding hover effect
+    backgroundColor: theme.palette.grey[100], // Changing background color on hover
   },
-  '& .MuiListItemIcon-root': {
-    color: theme.palette.primary.main,
+  '& .MuiListItemIcon-root': { // Customizing icon color in ListItem
+    color: theme.palette.primary.main, // Setting icon color
   },
 }));
 
+// Defining the Support functional component
 const Support = () => {
+  // Array of support resources
   const supportResources = [
     {
-      icon: <DocumentationIcon />,
-      title: 'Documentation',
-      description: 'Access comprehensive guides and documentation',
-      action: 'View Documentation',
-      link: '#',
+      icon: <DocumentationIcon />, // Icon for documentation
+      title: 'Documentation', // Title for documentation resource
+      description: 'Access comprehensive guides and documentation', // Description for documentation
+      action: 'View Documentation', // Action text for documentation
+      link: '#', // Link for documentation
     },
     {
-      icon: <EmailIcon />,
-      title: 'Contact Support',
-      description: 'Get in touch with our support team',
-      action: 'Send Email',
-      link: 'mailto:support@aetherscan.com',
+      icon: <EmailIcon />, // Icon for contact support
+      title: 'Contact Support', // Title for contact support resource
+      description: 'Get in touch with our support team', // Description for contact support
+      action: 'Send Email', // Action text for contact support
+      link: 'mailto:support@aetherscan.com', // Email link for contact support
     },
     {
-      icon: <CommunityIcon />,
-      title: 'Community Forum',
-      description: 'Connect with other users and share experiences',
-      action: 'Join Discussion',
-      link: '#',
+      icon: <CommunityIcon />, // Icon for community forum
+      title: 'Community Forum', // Title for community forum resource
+      description: 'Connect with other users and share experiences', // Description for community forum
+      action: 'Join Discussion', // Action text for community forum
+      link: '#', // Link for community forum
     },
     {
-      icon: <BugIcon />,
-      title: 'Report an Issue',
-      description: 'Submit bug reports or feature requests',
-      action: 'Report Issue',
-      link: '#',
+      icon: <BugIcon />, // Icon for reporting issues
+      title: 'Report an Issue', // Title for reporting issues
+      description: 'Submit bug reports or feature requests', // Description for reporting issues
+      action: 'Report Issue', // Action text for reporting issues
+      link: '#', // Link for reporting issues
     },
   ];
 
+  // Rendering the Support component
   return (
-    <Box>
-      <Typography variant="h4" gutterBottom>
+    <Box> // Main container for the component
+      <Typography variant="h4" gutterBottom> // Header for the support page
         Support
       </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <StyledPaper elevation={1}>
-            <TitleBox>
-              <Typography variant="h6">
+      <Grid container spacing={3}> // Grid container for layout
+        <Grid item xs={12}> // Grid item taking full width
+          <StyledPaper elevation={1}> // Using the styled Paper component
+            <TitleBox> // Title box for help center
+              <Typography variant="h6"> // Subheader for help center
                 Help Center
               </Typography>
             </TitleBox>
-            <Typography variant="body2" color="text.secondary" align="center" gutterBottom>
+            <Typography variant="body2" color="text.secondary" align="center" gutterBottom> // Body text for instructions
               Find help and resources for using AetherScan.
             </Typography>
 
-            <List sx={{ mt: 2 }}>
-              {supportResources.map((resource, index) => (
-                <StyledListItem key={index} component={Link} href={resource.link} underline="none">
+            <List sx={{ mt: 2 }}> // List of support resources
+              {supportResources.map((resource, index) => ( // Mapping through support resources
+                <StyledListItem key={index} component={Link} href={resource.link} underline="none"> // Styled ListItem for each resource
                   <ListItemIcon>
-                    {resource.icon}
+                    {resource.icon} // Rendering the resource icon
                   </ListItemIcon>
                   <ListItemText
                     primary={
-                      <Typography variant="h6" color="text.primary">
+                      <Typography variant="h6" color="text.primary"> // Primary text for resource title
                         {resource.title}
                       </Typography>
                     }
                     secondary={
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography variant="body2" color="text.secondary"> // Secondary text for resource description
                         {resource.description}
                       </Typography>
                     }
                   />
                   <Button
-                    variant="outlined"
-                    color="primary"
-                    size="small"
-                    sx={{ ml: 2 }}
+                    variant="outlined" // Button variant
+                    color="primary" // Button color
+                    size="small" // Button size
+                    sx={{ ml: 2 }} // Adding margin to the left of the button
                   >
-                    {resource.action}
+                    {resource.action} // Button text for action
                   </Button>
                 </StyledListItem>
               ))}
@@ -135,4 +150,5 @@ const Support = () => {
   );
 };
 
+// Exporting the Support component for use in other parts of the application
 export default Support;
