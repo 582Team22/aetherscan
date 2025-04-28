@@ -46,25 +46,25 @@ const TitleBox = styled(Box)(({ theme }) => ({
 // Defining the SignUp functional component
 function SignUp() {
   return (
-    <StyledContainer> // Using the styled Container component
-      <StyledPaper elevation={0}> // Using the styled Paper component
-        <TitleBox> // Title box for the sign-up form
-          <Box> // Box for text content
-            <Typography variant="h4" component="h1" gutterBottom> // Header for the sign-up form
+    <StyledContainer> {/* Using the styled Container component */}
+      <StyledPaper elevation={0}> {/* Using the styled Paper component */}
+        <TitleBox> {/* Title box for the sign-up form */}
+          <Box> {/* Box for text content */}
+            <Typography variant="h4" component="h1" gutterBottom> {/* Header for the sign-up form */}
               Sign up
             </Typography>
-            <Typography variant="body1" color="text.secondary" gutterBottom> // Body text for instructions
+            <Typography variant="body1" color="text.secondary" gutterBottom> {/* Body text for instructions */}
               Just a few quick things to get started
             </Typography>
           </Box>
         </TitleBox>
-        <Box width="100%" mt={2}> // Box for the sign-up form
-          <SignUpForm /> // Rendering the SignUpForm component
+        <Box width="100%" mt={2}> {/* Box for the sign-up form */}
+          <SignUpForm /> {/* Rendering the SignUpForm component */}
         </Box>
-        <Box mt={3}> // Box for the login link
-          <Typography variant="body2" color="text.secondary"> // Body text for login prompt
+        <Box mt={3}> {/* Box for the login link */}
+          <Typography variant="body2" color="text.secondary"> {/* Body text for login prompt */}
             Already have an account?{' '}
-            <Link to="/login" style={{ color: 'inherit', fontWeight: 600 }}> // Link to the login page
+            <Link to="/login" style={{ color: 'inherit', fontWeight: 600 }}> {/* Link to the login page */}
               Log In
             </Link>
           </Typography>

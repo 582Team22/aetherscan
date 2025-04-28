@@ -109,7 +109,7 @@ function SignUpForm() {
           size="large" // Button size
           fullWidth // Making the button take full width
         >
-          Sign Up // Button text
+          Sign Up
         </Button>
       </Box>
     </form>

@@ -111,16 +111,16 @@ function HomePage() {
 
   // Rendering the HomePage component
   return (
-    <Box sx={{ display: 'flex' }}> // Main container for the component
-      <StyledDrawer variant="permanent"> // Using the styled Drawer component
-        <Logo> // Logo section
-          <i className="fas fa-drone" /> // Drone icon
-          <Typography variant="h6" noWrap> // Application title
+    <Box sx={{ display: 'flex' }}> {/* Main container for the component */}
+      <StyledDrawer variant="permanent"> {/* Using the styled Drawer component */}
+        <Logo> {/* Logo section */}
+          <i className="fas fa-drone" /> {/* Drone icon */}
+          <Typography variant="h6" noWrap> {/* Application title */}
             AetherScan
           </Typography>
         </Logo>
         
-        <List sx={{ px: 2 }}> // List for menu items
+        <List sx={{ px: 2 }}> {/* List for menu items */}
           {menuItems.map((item) => ( // Mapping through menu items
             <StyledListItemButton
               key={item.text} // Unique key for each item
@@ -128,16 +128,16 @@ function HomePage() {
               to={item.path} // Setting the path for the link
               selected={location.pathname === item.path} // Highlighting the selected item
             >
-              <ListItemIcon sx={{ color: 'inherit', minWidth: 40 }}> // Icon for the menu item
+              <ListItemIcon sx={{ color: 'inherit', minWidth: 40 }}> {/* Icon for the menu item */}
                 {item.icon}
               </ListItemIcon>
-              <ListItemText primary={item.text} /> // Text for the menu item
+              <ListItemText primary={item.text} />  {/* Text for the menu item */}
             </StyledListItemButton>
           ))}
         </List>
 
-        <Box sx={{ mt: 'auto', pb: 2 }}> // Box for bottom menu items
-          <List sx={{ px: 2 }}> // List for bottom menu items
+        <Box sx={{ mt: 'auto', pb: 2 }}> {/* Box for bottom menu items */}
+          <List sx={{ px: 2 }}> {/* List for bottom menu items */}
             {bottomMenuItems.map((item) => ( // Mapping through bottom menu items
               <StyledListItemButton
                 key={item.text} // Unique key for each item
@@ -145,34 +145,34 @@ function HomePage() {
                 to={item.path} // Setting the path for the link
                 selected={location.pathname === item.path} // Highlighting the selected item
               >
-                <ListItemIcon sx={{ color: 'inherit', minWidth: 40 }}> // Icon for the bottom menu item
+                <ListItemIcon sx={{ color: 'inherit', minWidth: 40 }}> {/* Icon for the bottom menu item */}
                   {item.icon}
                 </ListItemIcon>
-                <ListItemText primary={item.text} /> // Text for the bottom menu item
+                <ListItemText primary={item.text} /> {/* Text for the bottom menu item */}
               </StyledListItemButton>
             ))}
             <StyledListItemButton // Button for logging out
               onClick={handleLogout} // Handling logout click
             >
-              <ListItemIcon sx={{ color: 'inherit', minWidth: 40 }}> // Logout icon
+              <ListItemIcon sx={{ color: 'inherit', minWidth: 40 }}> {/* Logout icon */}
                 <LogoutIcon />
               </ListItemIcon>
-              <ListItemText primary="Log out" /> // Text for the logout button
+              <ListItemText primary="Log out" /> {/* Text for the logout button */}
             </StyledListItemButton>
           </List>
         </Box>
       </StyledDrawer>
 
-      <ContentArea> // Content area for routing
-        <Routes> // Defining routes for the application
-          <Route path="/" element={<Navigate to="/homepage/dashboard" replace />} /> // Redirecting to dashboard
-          <Route path="/dashboard" element={<Dashboard />} /> // Route for Dashboard
-          <Route path="/alerts-summary" element={<AlertsSummary />} /> // Route for Alerts Summary
-          <Route path="/live-video-feed" element={<LiveVideoFeed />} /> // Route for Live Video Feed
-          <Route path="/interactive-map" element={<InteractiveMap />} /> // Route for Interactive Map
-          <Route path="/support" element={<Support />} /> // Route for Support
-          <Route path="/settings" element={<Settings />} /> // Route for Settings
-          <Route path="/drone-detection" element={<DetectionLog />} /> // Route for Detection Log
+      <ContentArea> {/* Content area for routing */}
+        <Routes> {/* Defining routes for the application */}
+          <Route path="/" element={<Navigate to="/homepage/dashboard" replace />} /> {/* Redirecting to dashboard */}
+          <Route path="/dashboard" element={<Dashboard />} /> {/* Route for Dashboard */}
+          <Route path="/alerts-summary" element={<AlertsSummary />} /> {/* Route for Alerts Summary */}
+          <Route path="/live-video-feed" element={<LiveVideoFeed />} /> {/* Route for Live Video Feed */}
+          <Route path="/interactive-map" element={<InteractiveMap />} /> {/* Route for Interactive Map */}
+          <Route path="/support" element={<Support />} /> {/* Route for Support */}
+          <Route path="/settings" element={<Settings />} /> {/* Route for Settings */}
+          <Route path="/drone-detection" element={<DetectionLog />} /> {/* Route for Detection Log */}
         </Routes>
       </ContentArea>
     </Box>

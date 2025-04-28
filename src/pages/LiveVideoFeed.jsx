@@ -78,22 +78,22 @@ const LiveVideoFeed = () => {
 
   // Rendering the LiveVideoFeed component
   return (
-    <Box> // Main container for the component
-      <Typography variant="h4" gutterBottom> // Header for the live video feed
+    <Box> {/* Main container for the component */}
+      <Typography variant="h4" gutterBottom> {/* Header for the live video feed */}
         Live Video Feed
       </Typography>
-      <Grid container spacing={3}> // Grid container for layout
-        <Grid item xs={12}> // Grid item taking full width
-          <StyledPaper elevation={1}> // Using the styled Paper component
-            <TitleBox> // Title box for the video feed
-              <Typography variant="h6"> // Subheader for the video feed
+      <Grid container spacing={3}> {/* Grid container for layout */}
+        <Grid item xs={12}> {/* Grid item taking full width */}
+          <StyledPaper elevation={1}> {/* Using the styled Paper component */}
+            <TitleBox> {/* Title box for the video feed */}
+              <Typography variant="h6"> {/* Subheader for the video feed */}
                 Drone Camera Feed
               </Typography>
             </TitleBox>
-            <Typography variant="body2" color="text.secondary" align="center" gutterBottom> // Body text for additional information
+            <Typography variant="body2" color="text.secondary" align="center" gutterBottom> {/* Body text for additional information */}
               Real-time video stream from the drone's camera.
             </Typography>
-            <VideoBox> // Box for the video feed
+            <VideoBox> {/* Box for the video feed */}
               <img 
                 src={obsServer ? ("http://" + obsServer + ":5001/video_feed") 
                                : 'http://localhost:5001/video_feed'} // Setting the source for the video feed

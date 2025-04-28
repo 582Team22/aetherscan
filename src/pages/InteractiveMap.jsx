@@ -36,20 +36,20 @@ const MapBox = styled(Box)(({ theme }) => ({
 // Defining the InteractiveMap functional component
 const InteractiveMap = () => {
   return (
-    <Box> // Main container for the component
-      <Typography variant="h4" gutterBottom> // Header for the interactive map
+    <Box>  {/* Main container for the component */}
+      <Typography variant="h4" gutterBottom> {/* Header for the interactive map */}
         Interactive Map
       </Typography>
-      <Grid container spacing={3}> // Grid container for layout
-        <Grid item xs={12}> // Grid item taking full width
-          <StyledPaper elevation={1}> // Using the styled Paper component
-            <MapBox> // Box for the map title
-              <MapIcon /> // Map icon
-              <Box> // Box for text content
-                <Typography variant="h6" gutterBottom> // Subheader for the map
+      <Grid container spacing={3}> {/* Grid container for layout */}
+        <Grid item xs={12}> {/* Grid item taking full width */}
+          <StyledPaper elevation={1}> {/* Using the styled Paper component */}
+            <MapBox> {/* Box for the map title */}
+              <MapIcon /> {/* Map icon */}
+              <Box> {/* Box for text content */}
+                <Typography variant="h6" gutterBottom> {/* Subheader for the map */}
                   Drone Location Map
                 </Typography>
-                <Typography variant="body2" color="text.secondary"> // Body text for additional information
+                <Typography variant="body2" color="text.secondary"> {/* Body text for additional information */}
                   The interactive map will be displayed here, showing real-time drone location and flight path.
                 </Typography>
               </Box>

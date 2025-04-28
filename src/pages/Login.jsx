@@ -46,25 +46,25 @@ const TitleBox = styled(Box)(({ theme }) => ({
 // Defining the Login functional component
 function Login() {
   return (
-    <StyledContainer> // Using the styled Container component
-      <StyledPaper elevation={0}> // Using the styled Paper component
-        <TitleBox> // Title box for the login form
-          <Box> // Box for text content
-            <Typography variant="h4" component="h1" gutterBottom> // Header for the login form
+    <StyledContainer> {/* Using the styled Container component */}
+      <StyledPaper elevation={0}> {/* Using the styled Paper component */}
+        <TitleBox> {/* Title box for the login form */}
+          <Box> {/* Box for text content */}
+            <Typography variant="h4" component="h1" gutterBottom> {/* Header for the login form */}
               Login
             </Typography>
-            <Typography variant="body1" color="text.secondary" gutterBottom> // Body text for welcome message
+            <Typography variant="body1" color="text.secondary" gutterBottom> {/* Body text for welcome message */}
               Hi! Welcome back.
             </Typography>
           </Box>
         </TitleBox>
-        <Box width="100%" mt={2}> // Box for the login form
-          <LoginForm /> // Rendering the LoginForm component
+        <Box width="100%" mt={2}> {/* Box for the login form */}
+          <LoginForm /> {/* Rendering the LoginForm component */}
         </Box>
-        <Box mt={3}> // Box for the sign-up link
-          <Typography variant="body2" color="text.secondary"> // Body text for sign-up prompt
+        <Box mt={3}> {/* Box for the sign-up link */}
+          <Typography variant="body2" color="text.secondary"> {/* Body text for sign-up prompt */}
             Don't have an account?{' '}
-            <Link to="/signup" style={{ color: 'inherit', fontWeight: 600 }}> // Link to sign-up page
+            <Link to="/signup" style={{ color: 'inherit', fontWeight: 600 }}> {/* Link to sign-up page */}
               Sign Up
             </Link>
           </Typography>

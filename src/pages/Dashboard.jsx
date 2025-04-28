@@ -71,73 +71,73 @@ const Dashboard = () => {
   };
 
   return (
-    <Box> // Main container for the component
-      <Typography variant="h4" gutterBottom> // Header for the dashboard
+    <Box> {/* Main container for the component */}
+      <Typography variant="h4" gutterBottom> {/* Header for the dashboard */}
         Drone Status
       </Typography>
-      <Grid container spacing={3}> // Grid container for layout
-        <Grid item xs={12} md={6}> // Grid item taking full width on small screens and half on medium
-          <StyledPaper elevation={1}> // Using the styled Paper component
-            <TitleBox> // Title box for the current status
-              <Typography variant="h6"> // Subheader for current status
+      <Grid container spacing={3}> {/* Grid container for layout */}
+        <Grid item xs={12} md={6}> {/* Grid item taking full width on small screens and half on medium */}
+          <StyledPaper elevation={1}> {/* Using the styled Paper component */}
+            <TitleBox> {/* Title box for the current status */}
+              <Typography variant="h6"> {/* Subheader for current status */}
                 Current Status
               </Typography>
             </TitleBox>
-            <MetricBox> // Box for battery metric
-              <BatteryIcon /> // Battery icon
-              <Box> // Box for text content
-                <MetricLabel> // Label for battery level
+            <MetricBox> {/* Box for battery metric */}
+              <BatteryIcon /> {/* Battery icon */}
+              <Box> {/* Box for text content */}
+                <MetricLabel> {/* Label for battery level */}
                   Battery Level
                 </MetricLabel>
-                <MetricValue> // Value for battery level
+                <MetricValue> {/* Value for battery level */}
                   {droneMetrics.battery}
                 </MetricValue>
               </Box>
             </MetricBox>
-            <MetricBox> // Box for location metric
-              <LocationIcon /> // Location icon
-              <Box> // Box for text content
-                <MetricLabel> // Label for current location
+            <MetricBox> {/* Box for location metric */}
+              <LocationIcon /> {/* Location icon */}
+              <Box> {/* Box for text content */}
+                <MetricLabel> {/* Label for current location */}
                   Current Location
                 </MetricLabel>
-                <MetricValue> // Value for current location
+                <MetricValue> {/* Value for current location */}
                   {droneMetrics.coordinates}
                 </MetricValue>
               </Box>
             </MetricBox>
-            <MetricBox> // Box for speed metric
-              <SpeedIcon /> // Speed icon
-              <Box> // Box for text content
-                <MetricLabel> // Label for current speed
+            <MetricBox> {/* Box for speed metric */}
+              <SpeedIcon /> {/* Speed icon */}
+              <Box> {/* Box for text content */}
+                <MetricLabel> {/* Label for current speed */}
                   Current Speed
                 </MetricLabel>
-                <MetricValue> // Value for current speed
+                <MetricValue> {/* Value for current speed */}
                   {droneMetrics.speed}
                 </MetricValue>
               </Box>
             </MetricBox>
-            <MetricBox> // Box for altitude metric
-              <AltitudeIcon /> // Altitude icon
-              <Box> // Box for text content
-                <MetricLabel> // Label for current altitude
+            <MetricBox> {/* Box for altitude metric */}
+              <AltitudeIcon /> {/* Altitude icon */}
+              <Box> {/* Box for text content */}
+                <MetricLabel> {/* Label for current altitude */}
                   Current Altitude
                 </MetricLabel>
-                <MetricValue> // Value for current altitude
+                <MetricValue> {/* Value for current altitude */}
                   {droneMetrics.altitude}
                 </MetricValue>
               </Box>
             </MetricBox>
           </StyledPaper>
         </Grid>
-        <Grid item xs={12} md={6}> // Grid item taking full width on small screens and half on medium
-          <StyledPaper elevation={1}> // Using the styled Paper component
-            <TitleBox> // Title box for recent activity
-              <Typography variant="h6"> // Subheader for recent activity
+        <Grid item xs={12} md={6}> {/* Grid item taking full width on small screens and half on medium */}
+          <StyledPaper elevation={1}> {/* Using the styled Paper component */}
+            <TitleBox> {/* Title box for recent activity */}
+              <Typography variant="h6"> {/* Subheader for recent activity */}
                 Recent Activity
               </Typography>
             </TitleBox>
             {/* Add a timeline or activity feed here */}
-            <Typography variant="body2" color="text.secondary"> // Body text for no recent activity
+            <Typography variant="body2" color="text.secondary"> {/* Body text for no recent activity */}
               No recent activity to display.
             </Typography>
           </StyledPaper>

@@ -108,24 +108,24 @@ function DetectionLog() {
 
   // Rendering the DetectionLog component
   return (
-    <Box> // Main container for the component
-      <Typography variant="h4" gutterBottom> // Header for the detection log
+    <Box> {/* Main container for the component */}
+      <Typography variant="h4" gutterBottom> {/* Header for the detection log */}
         Detections Log
       </Typography>
-      <StyledPaper elevation={1}> // Using the styled Paper component
-        <TitleBox> // Title box for detection history
-          <Typography variant="h6"> // Subheader for detection history
+      <StyledPaper elevation={1}> {/* Using the styled Paper component */}
+        <TitleBox> {/* Title box for detection history */}
+          <Typography variant="h6"> {/* Subheader for detection history */}
             Detection History
           </Typography>
         </TitleBox>
-        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}> // Centering the download button
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}> {/* Centering the download button */}
           <StyledButton
             variant="contained" // Button variant
             color="primary" // Button color
             onClick={handleDownloadReport} // Handling button click
             startIcon={<DownloadIcon />} // Adding download icon to the button
           >
-            Download PDF // Button text
+            Download PDF {/* Button text */}
           </StyledButton>
         </Box>
         <DataTable // DataTable for displaying detection data

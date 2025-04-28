@@ -32,8 +32,8 @@ function LoginForm() {
 
   // Rendering the login form
   return (
-    <form onSubmit={handleSubmit}> // Handling form submission
-      <Box display="flex" flexDirection="column" width="100%"> // Using Box for layout
+    <form onSubmit={handleSubmit}> {/* Handling form submission */}
+      <Box display="flex" flexDirection="column" width="100%"> {/* Using Box for layout */}
         <StyledTextField
           type="email" // Input type for email
           label="Email" // Label for the email field
@@ -63,7 +63,7 @@ function LoginForm() {
           size="large" // Button size
           fullWidth // Making the button take full width
         >
-          Log In // Button text
+          Log In {/* Button text */}
         </Button>
       </Box>
     </form>

@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
   // Providing the AuthContext to children components
   return (
     <AuthContext.Provider value={{ curUser, loginAction, logOut }}>
-      {!loading && children} // Rendering children only when not loading
+      {!loading && children} {/* Rendering children only when not loading */}
     </AuthContext.Provider>
   );
 };

@@ -14,7 +14,7 @@ import React from 'react'; // Importing React library
 
 // Rendering the application into the DOM
 createRoot(document.getElementById('base')).render(
-  <ErrorBoundary> // Wrapping the App component in ErrorBoundary
-    <App/> // Rendering the main App component
+  <ErrorBoundary> {/* Wrapping the App component in ErrorBoundary */}
+    <App/> {/* Rendering the main App component */}
   </ErrorBoundary>
 );

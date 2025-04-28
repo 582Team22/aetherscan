@@ -19,18 +19,18 @@ import { theme } from '../theme/theme'; // Importing custom theme
 
 function App() {
   return (
-    <ThemeProvider theme={theme}> // Providing theme to the application
-      <CssBaseline /> // Applying baseline CSS styles
-      <HashRouter> // Using HashRouter for routing
-        <AuthProvider> // Providing authentication context
-          <Routes> // Defining application routes
-            <Route element={<PrivateRoute />}> // Protecting the root route
-              <Route path="/" element={<Navigate to="/homepage" replace />} /> // Redirecting to homepage
+    <ThemeProvider theme={theme}> {/* Providing theme to the application */}
+      <CssBaseline /> {/* Applying baseline CSS styles */}
+      <HashRouter> {/* Using HashRouter for routing */}
+        <AuthProvider> {/* Providing authentication context */}
+          <Routes> {/* Defining application routes */}
+            <Route element={<PrivateRoute />}> {/* Protecting the root route */}
+              <Route path="/" element={<Navigate to="/homepage" replace />} /> {/* Redirecting to homepage */}
             </Route>
-            <Route path='/login' element={<Login />} /> // Login route
-            <Route path='/signup' element={<SignUp />} /> // SignUp route
-            <Route element={<PrivateRoute />}> // Protecting the homepage route
-              <Route path="/homepage/*" element={<HomePage />} /> // Homepage route
+            <Route path='/login' element={<Login />} /> {/* Login route */}
+            <Route path='/signup' element={<SignUp />} /> {/* SignUp route */}
+            <Route element={<PrivateRoute />}> {/* Protecting the homepage route */}
+              <Route path="/homepage/*" element={<HomePage />} /> {/* Homepage route */}
             </Route>
           </Routes>
         </AuthProvider>

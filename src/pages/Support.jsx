@@ -98,36 +98,36 @@ const Support = () => {
 
   // Rendering the Support component
   return (
-    <Box> // Main container for the component
-      <Typography variant="h4" gutterBottom> // Header for the support page
+    <Box> {/* Main container for the component */}
+      <Typography variant="h4" gutterBottom> {/* Header for the support page */} 
         Support
       </Typography>
-      <Grid container spacing={3}> // Grid container for layout
-        <Grid item xs={12}> // Grid item taking full width
-          <StyledPaper elevation={1}> // Using the styled Paper component
-            <TitleBox> // Title box for help center
-              <Typography variant="h6"> // Subheader for help center
+      <Grid container spacing={3}> {/* Grid container for layout */}
+        <Grid item xs={12}> {/* Grid item taking full width */}
+          <StyledPaper elevation={1}> {/* Using the styled Paper component */}
+            <TitleBox> {/* Title box for help center */} 
+              <Typography variant="h6"> {/* Subheader for help center */}
                 Help Center
               </Typography>
             </TitleBox>
-            <Typography variant="body2" color="text.secondary" align="center" gutterBottom> // Body text for instructions
+            <Typography variant="body2" color="text.secondary" align="center" gutterBottom> {/* Body text for instructions */}
               Find help and resources for using AetherScan.
             </Typography>
 
-            <List sx={{ mt: 2 }}> // List of support resources
+            <List sx={{ mt: 2 }}> {/* List of support resources */}
               {supportResources.map((resource, index) => ( // Mapping through support resources
-                <StyledListItem key={index} component={Link} href={resource.link} underline="none"> // Styled ListItem for each resource
+                <StyledListItem key={index} component={Link} href={resource.link} underline="none"> {/* Styled ListItem for each resource */}
                   <ListItemIcon>
-                    {resource.icon} // Rendering the resource icon
+                    {resource.icon} { /* Rendering the resource icon */}
                   </ListItemIcon>
                   <ListItemText
                     primary={
-                      <Typography variant="h6" color="text.primary"> // Primary text for resource title
+                      <Typography variant="h6" color="text.primary"> {/* Primary text for resource title */}
                         {resource.title}
                       </Typography>
                     }
                     secondary={
-                      <Typography variant="body2" color="text.secondary"> // Secondary text for resource description
+                      <Typography variant="body2" color="text.secondary"> {/* Secondary text for resource description */}
                         {resource.description}
                       </Typography>
                     }
@@ -138,7 +138,7 @@ const Support = () => {
                     size="small" // Button size
                     sx={{ ml: 2 }} // Adding margin to the left of the button
                   >
-                    {resource.action} // Button text for action
+                    {resource.action} {/* Button text for action */}
                   </Button>
                 </StyledListItem>
               ))}

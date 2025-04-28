@@ -106,34 +106,34 @@ const Settings = () => {
 
   // Rendering the Settings component
   return (
-    <Box> // Main container for the component
-      <Typography variant="h4" gutterBottom> // Header for the settings page
+    <Box> {/* Main container for the component */}
+      <Typography variant="h4" gutterBottom> {/* Header for the settings page */}
         Settings
       </Typography>
-      <Grid container spacing={3}> // Grid container for layout
-        <Grid item xs={12}> // Grid item taking full width
-          <StyledPaper elevation={1}> // Using the styled Paper component
-            <TitleBox> // Title box for system settings
-              <Typography variant="h6"> // Subheader for system settings
+      <Grid container spacing={3}> {/* Grid container for layout */}
+        <Grid item xs={12}> {/* Grid item taking full width */}
+          <StyledPaper elevation={1}> {/* Using the styled Paper component */}
+            <TitleBox> {/* Title box for system settings */}
+              <Typography variant="h6"> {/* Subheader for system settings */}
                 System Settings
               </Typography>
             </TitleBox>
-            <Typography variant="body2" color="text.secondary" align="center" gutterBottom> // Body text for instructions
+            <Typography variant="body2" color="text.secondary" align="center" gutterBottom> {/* Body text for instructions */}
               Configure your drone monitoring system settings.
             </Typography>
 
             {success && ( // Conditionally rendering success alert if there's a success message
               <Alert severity="success" sx={{ mb: 2 }}>
-                {success} // Displaying success message
-              </Alert>
+                {success} {/* Displaying success message */}
+              </Alert> 
             )}
             {error && ( // Conditionally rendering error alert if there's an error message
               <Alert severity="error" sx={{ mb: 2 }}>
-                {error} // Displaying error message
+                {error} {/* Displaying error message */}
               </Alert>
             )}
 
-            <FormBox component="form" onSubmit={handleSettingsChange}> // Form for settings
+            <FormBox component="form" onSubmit={handleSettingsChange}> {/* Form for settings */}
               <TextField
                 fullWidth // Making the field take full width
                 label="AWS Server IP" // Label for the input field
@@ -143,14 +143,14 @@ const Settings = () => {
                 helperText="Enter the AWS Public IP address" // Helper text for the input field
                 sx={{ mb: 3 }} // Adding margin below the input field
               />
-              <Box display="flex" justifyContent="center"> // Centering the save button
+              <Box display="flex" justifyContent="center"> {/* Centering the save button */}
                 <Button
                   type="submit" // Button type for form submission
                   variant="contained" // Button variant
                   color="primary" // Button color
                   startIcon={<SaveIcon />} // Adding save icon to the button
                 >
-                  Save Settings // Button text
+                  Save Settings {/* Button text */}
                 </Button>
               </Box>
             </FormBox>
