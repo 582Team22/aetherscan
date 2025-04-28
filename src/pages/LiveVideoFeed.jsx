@@ -94,7 +94,8 @@ const LiveVideoFeed = () => {
                         </Typography>
                         <VideoContainer>
                             <img 
-                                src={obsServer || 'http://localhost:5001/video_feed'} 
+                                src={obsServer ? ("http://" + obsServer + ":5001/video_feed") 
+                                               : 'http://localhost:5001/video_feed'} 
                                 alt="Live Drone Feed"
                             />
                         </VideoContainer>

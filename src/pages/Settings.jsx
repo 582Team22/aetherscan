@@ -42,7 +42,7 @@ const Settings = () => {
         console.error('Error fetching settings:', error);
         const { data: insertData, error: insertError } = await supabase
           .from('settings')
-          .insert({ uid: curUser.id, obs_server: 'http://localhost:5001/video_feed' });
+          .insert({ uid: curUser.id, obs_server: '98.84.14.247' });
         if (insertError) {
           console.error('Error inserting default settings:', insertError);
           return;
@@ -119,11 +119,11 @@ const Settings = () => {
             <FormBox component="form" onSubmit={handleSettingsChange}>
               <TextField
                 fullWidth
-                label="OBS WebSocket Server"
+                label="AWS Server IP"
                 value={obsServer}
                 onChange={(e) => setObsServer(e.target.value)}
                 placeholder="http://localhost:5001/video_feed"
-                helperText="Enter your OBS WebSocket server address"
+                helperText="Enter the AWS Public IP address"
                 sx={{ mb: 3 }}
               />
               <Box display="flex" justifyContent="center">
