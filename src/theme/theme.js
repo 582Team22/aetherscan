@@ -1,3 +1,11 @@
+/*
+ * Author: Kyle Spragg
+ * File: theme.js
+ * Purpose: This module defines the Material-UI theme for the application, 
+ *          including color palettes, typography, shape, and component 
+ *          style overrides to ensure a consistent design throughout the app.
+ */
+
 import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
