@@ -1,3 +1,9 @@
+/*
+ * Author: Kyle Spragg
+ * File: ErrorBound.jsx
+ * Purpose: This component serves as an error boundary to catch JavaScript errors 
+ *          in its child component tree and display a fallback UI instead of crashing.
+ */
 import React from 'react';
 
 class ErrorBoundary extends React.Component {

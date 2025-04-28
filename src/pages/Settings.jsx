@@ -1,3 +1,10 @@
+/*
+ * Author: Kyle Spragg
+ * File: Settings.jsx
+ * Purpose: This component allows users to configure their system settings, 
+ *          including the OBS server address. It fetches current settings 
+ *          from the database and provides functionality to update them.
+ */
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Paper, Grid, TextField, Button, Alert } from '@mui/material';
 import { styled } from '@mui/material/styles';

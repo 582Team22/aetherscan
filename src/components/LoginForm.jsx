@@ -1,3 +1,9 @@
+/*
+ * Author: Kyle Spragg
+ * File: LoginForm.jsx
+ * Purpose: This component renders a login form that allows users to enter 
+ *          their email and password to authenticate and log into the application.
+ */
 import React, { useState } from 'react';
 import { TextField, Button, Box } from '@mui/material';
 import { Email as EmailIcon, Lock as LockIcon } from '@mui/icons-material';

@@ -1,3 +1,10 @@
+/*
+ * Author: Kyle Spragg
+ * File: Support.jsx
+ * Purpose: This component provides a support page for users, 
+ *          offering various resources such as documentation, 
+ *          contact support, community forums, and issue reporting.
+ */
 import React from 'react';
 import { Box, Typography, Paper, Grid, List, ListItem, ListItemIcon, ListItemText, Button, Link } from '@mui/material';
 import { styled } from '@mui/material/styles';

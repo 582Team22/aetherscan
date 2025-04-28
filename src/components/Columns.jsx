@@ -1,3 +1,9 @@
+/*
+ * Author: Kyle Spragg
+ * File: Columns.jsx
+ * Purpose: This file defines the column structure for a data table, 
+ *          specifying the data fields to be displayed and their properties.
+ */
 export const columns = [
     {
       name: "ID",

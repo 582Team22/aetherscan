@@ -1,3 +1,10 @@
+/*
+ * Author: Kyle Spragg
+ * File: InteractiveMap.jsx
+ * Purpose: This component displays an interactive map that shows the real-time 
+ *          location of the drone and its flight path. It provides users with 
+ *          a visual representation of the drone's movements and status.
+ */
 import React from 'react';
 import { Box, Typography, Paper, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';

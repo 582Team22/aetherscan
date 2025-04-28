@@ -1,3 +1,10 @@
+/*
+ * Author: Kyle Spragg
+ * File: DetectionLog.jsx
+ * Purpose: This component displays a log of detections made by the drone, 
+ *          allowing users to view detection data in a table format. 
+ *          It also provides functionality to download the detection log as a PDF.
+ */
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';

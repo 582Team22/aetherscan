@@ -1,3 +1,10 @@
+/*
+ * Author: Kyle Spragg
+ * File: Login.jsx
+ * Purpose: This component renders the login page, allowing users to enter 
+ *          their credentials to access the application. It includes a 
+ *          login form and a link to the sign-up page for new users.
+ */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from "../components/LoginForm";

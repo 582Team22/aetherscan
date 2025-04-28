@@ -1,3 +1,9 @@
+/*
+ * Author: Kyle Spragg
+ * File: SignUpForm.jsx
+ * Purpose: This component renders a sign-up form that allows users to create 
+ *          a new account by entering their email, username, and password.
+ */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextField, Button, Box, Alert } from '@mui/material';

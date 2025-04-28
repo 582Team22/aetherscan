@@ -1,3 +1,9 @@
+/*
+ * Author: Kyle Spragg
+ * File: App.jsx
+ * Purpose: This component serves as the main application entry point, 
+ *          setting up routing and theming for the application.
+ */
 // import { useState, useEffect } from 'react'
 import '../assets/App.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';

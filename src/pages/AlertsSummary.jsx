@@ -1,3 +1,10 @@
+/*
+ * Author: Kyle Spragg
+ * File: AlertsSummary.jsx
+ * Purpose: This component displays a summary of alerts, showing the current 
+ *          status of alerts in the system. It informs users if there are 
+ *          no active alerts and provides a notification icon.
+ */
 import React from 'react';
 import { Box, Typography, Paper, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';

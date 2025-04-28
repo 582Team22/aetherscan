@@ -1,3 +1,11 @@
+/*
+ * Author: Kyle Spragg
+ * File: AuthProvider.jsx
+ * Purpose: This component provides authentication context to the application, 
+ *          managing user login, logout, and session state using Supabase. 
+ *          It allows components to access the current user and perform 
+ *          authentication actions.
+ */
 import { useContext, createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import supabase from '../utils/supabase';

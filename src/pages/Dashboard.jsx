@@ -1,3 +1,10 @@
+/*
+ * Author: Kyle Spragg
+ * File: Dashboard.jsx
+ * Purpose: This component displays the current status of the drone, including 
+ *          metrics such as battery level, location, speed, and altitude. 
+ *          It provides a visual summary of the drone's operational status.
+ */
 import React from 'react';
 import { Grid, Paper, Typography, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';

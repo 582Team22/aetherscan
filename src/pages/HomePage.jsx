@@ -1,3 +1,11 @@
+/*
+ * Author: Kyle Spragg
+ * File: HomePage.jsx
+ * Purpose: This component serves as the main layout for the application, 
+ *          providing a navigation drawer and routing to various pages 
+ *          such as the dashboard, alerts summary, live video feed, 
+ *          interactive map, and detection log.
+ */
 import React from "react";
 import { Link, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { 

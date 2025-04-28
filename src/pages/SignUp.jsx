@@ -1,3 +1,10 @@
+/*
+ * Author: Kyle Spragg
+ * File: SignUp.jsx
+ * Purpose: This component renders the sign-up page, allowing new users 
+ *          to create an account. It includes a sign-up form and a link 
+ *          to the login page for existing users.
+ */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignUpForm from '../components/SignUpForm';

@@ -1,3 +1,10 @@
+/*
+ * Author: Kyle Spragg
+ * File: LiveVideoFeed.jsx
+ * Purpose: This component displays a live video feed from the drone's camera, 
+ *          allowing users to view real-time footage. It integrates with the 
+ *          Supabase authentication context to manage user sessions.
+ */
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Paper, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
